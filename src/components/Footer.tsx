@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
+import siteContent from '@/data/siteContent.json';
 
 const footerLinks = [
   { label: 'About', href: '#about' },
@@ -9,6 +10,14 @@ const footerLinks = [
   { label: 'Visit', href: '#visit' },
   { label: 'Book', href: '#book' },
 ];
+
+const socialIcons: Record<string, string> = {
+  instagram: 'CameraIcon',
+  facebook: 'UserGroupIcon',
+  tiktok: 'PlayIcon',
+  email: 'EnvelopeIcon',
+  phone: 'PhoneIcon',
+};
 
 export default function Footer() {
   return (
@@ -35,30 +44,25 @@ export default function Footer() {
 
         <div className="flex flex-col gap-2 md:items-end">
           <div className="flex items-center gap-2">
-            <a
-              href="https://instagram.com"
-              aria-label="hairbyrenee on Instagram"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
-            >
-              <Icon name="CameraIcon" size={20} />
-            </a>
-            <a
-              href="https://tiktok.com"
-              aria-label="hairbyrenee on TikTok"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
-            >
-              <Icon name="PlayIcon" size={20} />
-            </a>
-            <a
-              href="https://facebook.com"
-              aria-label="hairbyrenee on Facebook"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
-            >
-              <Icon name="UserGroupIcon" size={20} />
-            </a>
+            {siteContent?.social &&
+              Object.entries(siteContent.social).map(([key, url]) => {
+                if (!url || typeof url !== 'string' || !url.includes('http')) return null;
+                const iconName = socialIcons[key] || 'GlobeAltIcon';
+                const ariaLabel = `hairbyrenee on ${key.charAt(0).toUpperCase() + key.slice(1)}`;
+                return (
+                  <a
+                    key={key}
+                    href={url}
+                    aria-label={ariaLabel}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
+										target="_blank"
+                  >
+                    <Icon name={iconName} size={20} />
+                  </a>
+                );
+              })}
           </div>
           <p className="text-[15px] text-muted-foreground">
-            © 2026 hairbyrenee ·{' '}
             <Link href="#visit" className="underline-offset-4 hover:underline">Privacy</Link>
             {' · '}
             <Link href="#visit" className="underline-offset-4 hover:underline">Terms</Link>

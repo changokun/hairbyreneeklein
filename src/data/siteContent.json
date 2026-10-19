@@ -1,0 +1,63 @@
+{
+  "site": {
+    "name": "Hair by Renee Klein",
+    "title": "Hair by Renee Klein | Professional Hair Styling in Porto",
+    "description": "Expert English-speaking hair stylist in Porto.",
+    "tagline": "Transforming hair into art, one client at a time."
+  },
+  "social": {
+    "instagram": "https://instagram.com/hairbyreneeklein",
+    "facebook": "",
+    "tiktok": "",
+    "email": "",
+    "phone": "tel:+15551234567"
+  },
+  "hero": {
+    "headline": "Beautiful Hair Starts Here",
+    "subheadline": "Professional styling for every occasion and every hair type.",
+    "ctaText": "Book Your Appointment",
+    "ctaLink": "/book"
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Renee transformed my hair completely! I've never felt more confident.",
+      "author": "Sarah M.",
+      "title": "Bridal Client"
+    },
+    {
+      "id": 2,
+      "quote": "The best colorist in the city. My highlights are perfect every time.",
+      "author": "Jessica T.",
+      "title": "Regular Client"
+    },
+    {
+      "id": 3,
+      "quote": "Amazing service and attention to detail. Highly recommend!",
+      "author": "Michelle R.",
+      "title": "First-Time Client"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Haircuts & Styling",
+      "description": "Precision cuts tailored to your face shape and lifestyle."
+    },
+    {
+      "id": 2,
+      "name": "Color & Highlights",
+      "description": "Expert color application with premium products."
+    },
+    {
+      "id": 3,
+      "name": "Bridal & Special Events",
+      "description": "Elegant updos and styling for your special day."
+    },
+    {
+      "id": 4,
+      "name": "Hair Treatments",
+      "description": "Deep conditioning and repair treatments."
+    }
+  ]
+}
