@@ -1,0 +1,129 @@
+# Dependencies
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# Next.js build output
+.next/
+out/
+
+# Production build
+build/
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+.env.local
+.env.development
+.env.test
+.env.production
+
+# OS-specific files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Linux
+*~
+
+# Vercel deployment
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+coverage/
+.nyc_output/
+jest-test-results.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# TurboRepo / monorepo
+turbo/
+
+# Temporary files and caches
+*.tmp
+*.temp
+tmp/
+temp/
+.cache/
+
+# Local history
+.history/
+
+# Local override files
+*.local
+
+# Local development server configs
+*.config.js
+*.config.json
+
+# Node.js local modules
+node_modules.local/
+
+# Local overrides
+.pnp/
+.pnp.js
+
+# Parcel
+.cache/
+.parcel-cache/
+
+# Yarn
+.yarn/
+
+# pnpm
+.pnpm-store/
+
+# npm
+npm-debug.log*
+
+# Webpack
+.webpack/
+
+# ESLint
+.eslintcache
+
+# Prettier
+.prettiercache
+
+# Editor
+.sublime-workspace
+.sublime-project
+
+# Local env files
+.env*.local
+
+# macOS metadata
+*.pem
