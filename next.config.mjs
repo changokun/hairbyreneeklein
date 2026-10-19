@@ -1,5 +1,3 @@
-import { imageHosts } from './image-hosts.config.mjs';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: true,
@@ -14,7 +12,24 @@ const nextConfig = {
   },
 
   images: {
-    remotePatterns: imageHosts,
+    remotePatterns: [
+			{
+					protocol: 'https',
+					hostname: 'images.unsplash.com',
+			},
+			{
+					protocol: 'https',
+					hostname: 'images.pexels.com',
+			},
+			{
+					protocol: 'https',
+					hostname: 'images.pixabay.com',
+			},
+			{
+					protocol: 'https',
+					hostname: 'img.rocket.new',
+			},
+	],
     minimumCacheTTL: 60,
     qualities: [75, 85, 100],
   }
