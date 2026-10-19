@@ -9,7 +9,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
-    "serve": "next start",
+    "serve": "next start -p 4001",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
