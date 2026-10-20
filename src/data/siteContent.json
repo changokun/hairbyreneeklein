@@ -8,11 +8,15 @@
 		"lastName": "Klein"
   },
   "social": {
-    "instagram": "https://instagram.com/hairbyreneeklein",
-    "facebook": "",
-    "tiktok": "",
+    "Instagram": "https://instagram.com/hairbyreneeklein",
+    "Facebook": "",
+    "TikTok": "",
     "email": "appts@hairbyreneeklein.com",
-    "phone": "tel:+15551234567"
+    "emailLinkQueryVarsXXX": "subject=Hallo&body=beepbooop",
+    "phone": "+351 924 848 679",
+    "sms": "+351 924 848 679",
+    "WhatsApp": "+351 924 848 679",
+    "WhatsAppLinkQueryVars": "text=beepboop"
   },
   "hero": {
     "headline": "Beautiful Hair Starts Here",

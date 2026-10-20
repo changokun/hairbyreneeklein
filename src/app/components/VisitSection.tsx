@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '@/components/ui/AppIcon';
 import siteContent from '@/data/siteContent.json';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { FaWhatsapp, FaInstagram, FaTiktok, FaFacebook, FaEnvelope } from 'react-icons/fa6';
 
 const hours = [
   { day: 'Tuesday – Friday', time: '9:00 AM – 6:00 PM' },
@@ -16,11 +16,20 @@ const policies = [
   'A card is held at booking; you are charged only after your visit.',
 ];
 
-const socials = [
-  { label: 'Instagram', handle: '@hairbyrenee', icon: 'CameraIcon', href: 'https://instagram.com' },
-  { label: 'TikTok', handle: '@hairbyrenee', icon: 'PlayIcon', href: 'https://tiktok.com' },
-  { label: 'Facebook', handle: 'hairbyrenee Porto', icon: 'UserGroupIcon', href: 'https://facebook.com' },
-];
+
+// clean up some siteContent
+siteContent.social.Instagram = siteContent.social.Instagram.split('/').pop()
+siteContent.social.WhatsApp = siteContent.social.WhatsApp.replace(/\D/g, '')
+// keep trailing slashes on urls in here
+const socials: Record<string, { icon: React.JSX.Element; href: string }> = {
+  "Instagram": { "icon": <FaInstagram size={33} />, "href": 'https://instagram.com/' },
+  "WhatsApp": { "icon": <FaWhatsapp size={33} />, "href": 'https://wa.me/' },
+  "TikTok": { "icon": <FaTiktok size={33} />, "href": 'https://tiktok.com/' },
+  "Facebook": { "icon": <FaFacebook size={33} />, "href": 'https://facebook.com/' },
+  "email": { "icon": <FaEnvelope size={33} />, "href": 'mailto:' },
+};
+// emailLinkQueryVars
+// WhatsAppLinkQueryVars
 
 export default function VisitSection() {
   return (
@@ -131,26 +140,34 @@ export default function VisitSection() {
 
         {/* Socials */}
         <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
-          {socials.map((s, i) => (
-            <a
-              key={s.label}
-              data-reveal
-              data-reveal-delay={String(i * 100)}
-              href={s.href}
-              className="group flex min-h-[88px] items-center justify-between gap-4 rounded-[2rem] border border-border bg-card px-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-xl"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Icon name={s.icon as 'CameraIcon'} size={22} />
-                </div>
-                <div>
-                  <p className="text-[16px] font-semibold text-card-foreground">{s.label}</p>
-                  <p className="text-[15px] text-muted-foreground">{s.handle}</p>
-                </div>
-              </div>
-              <Icon name="ArrowUpRightIcon" size={22} className="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-          ))}
+          {Object.entries(siteContent.social).map(([label, social], i) => {
+						if( ! social.length || ! socials[label as keyof typeof socials]?.href || label.indexOf('QueryVars') > -1) return null;
+
+						const query = label === 'email' && siteContent.social.emailLinkQueryVars ? `?${siteContent.social.emailLinkQueryVars}` :
+               label === 'WhatsApp' && siteContent.social.WhatsAppLinkQueryVars ? `?${siteContent.social.WhatsAppLinkQueryVars}` : '';
+
+						return (
+							<a
+								key={label}
+								data-reveal
+								data-reveal-delay={String(i * 100)}
+								href={`${socials[label].href}${social}${query}`}
+								className="group flex min-h-[88px] items-center justify-between gap-4 rounded-[2rem] border border-border bg-card px-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-xl"
+								target="_blank"
+								>
+								<div className="flex items-center gap-4">
+									<div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
+										{socials[label].icon}
+									</div>
+									<div>
+										<p className="text-[16px] font-semibold text-card-foreground">{label}</p>
+										<p className="text-[15px] text-muted-foreground">{social}</p>
+									</div>
+								</div>
+								<Icon name="ArrowUpRightIcon" size={22} className="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+							</a>
+						)
+					})}
         </div>
 
         {/* Final CTA */}
