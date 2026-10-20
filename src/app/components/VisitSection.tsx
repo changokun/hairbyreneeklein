@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '@/components/ui/AppIcon';
 import siteContent from '@/data/siteContent.json';
+import { FaWhatsapp } from 'react-icons/fa6';
 
 const hours = [
   { day: 'Tuesday – Friday', time: '9:00 AM – 6:00 PM' },
@@ -43,13 +44,16 @@ export default function VisitSection() {
               </div>
               <h3 className="font-display mt-6 text-3xl text-card-foreground">Find the salon</h3>
               <div className="mt-3 flex flex-col gap-2">
+								<p className="text-[15px] text-muted-foreground">Call or message {siteContent.site.firstName} on:</p>
                 <a
                   href="tel:+351912345678"
                   className="inline-flex items-center gap-2 text-lg font-semibold text-card-foreground underline-offset-4 hover:underline"
                 >
                   <Icon name="PhoneIcon" size={20} /> +351 912 345 678
                 </a>
-                <p className="text-[15px] text-muted-foreground">Call or message {siteContent.site.firstName} on WhatsApp</p>
+								<a href="https://wa.me/${siteContent.contact.phone.replace(/\D/g, '')}">
+									<FaWhatsapp className="text-[#25D366] inline" size={20} /> WhatsApp
+								</a>
               </div>
               <address className="mt-5 text-lg not-italic leading-relaxed text-muted-foreground">
 								{siteContent.contact.addressLine1}
@@ -58,7 +62,7 @@ export default function VisitSection() {
                 {siteContent.contact.postalCode} {siteContent.contact.city}, Portugal
               </address>
               <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
-                Our brand-new salon in the heart of Porto, a short walk from Bolhão metro station.
+                Our brand-new salon in the heart of Porto, a block from the {new Date() < new Date('2027-06-30') ? 'new' : ''} Guerra Junqueiro Metrobus station.
               </p>
               <div className="mt-6 overflow-hidden rounded-2xl border border-border">
                 <iframe
@@ -73,7 +77,7 @@ export default function VisitSection() {
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Rua+de+Santa+Catarina+100,+4000-441+Porto,+Portugal"
+                href={`https://www.google.com/maps/dir/?api=1&destination=${siteContent.contact.addressLine1.replace(/\s/g, '+')},+${siteContent.contact.postalCode}+${siteContent.contact.city},+Portugal`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-full border border-primary px-6 text-[16px] font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -81,12 +85,12 @@ export default function VisitSection() {
                 <Icon name="MapIcon" size={20} /> Get directions
               </a>
               <a
-                href="https://wa.me/351912345678"
+                href={`https://wa.me/${siteContent.contact.phone.replace(/\D/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-full bg-secondary px-6 text-[16px] font-semibold text-secondary-foreground"
               >
-                <Icon name="ChatBubbleLeftRightIcon" size={20} /> WhatsApp
+								<FaWhatsapp className="text-[#25D366]" size={20} /> WhatsApp
               </a>
             </div>
           </div>
