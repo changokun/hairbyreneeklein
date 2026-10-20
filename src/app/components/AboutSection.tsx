@@ -16,7 +16,7 @@ export default function AboutSection() {
             <div className="overflow-hidden rounded-[2.5rem] bg-muted">
               <div className="relative h-[420px] w-full sm:h-[520px]">
                 <AppImage
-                  src="/assets/images/renee-klein-portrait.png"
+                  src="/assets/images/reneerustdress.jpg"
                   alt="Portrait of Renee Klein, hair stylist and owner of hairbyrenee, smiling in her salon"
                   fill
                   sizes="(max-width: 1024px) 90vw, 40vw"
