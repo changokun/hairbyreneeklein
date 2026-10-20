@@ -7,6 +7,7 @@ import ServicesSection from './components/ServicesSection';
 import ReviewsSection from './components/ReviewsSection';
 import VisitSection from './components/VisitSection';
 import RevealObserver from './components/RevealObserver';
+import siteContent from '@/data/siteContent.json';
 
 export default function HomePage() {
   const jsonLd = {
@@ -19,9 +20,9 @@ export default function HomePage() {
         telephone: '+351-912-345-678',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Rua de Santa Catarina 100, 2º andar',
-          addressLocality: 'Porto',
-          postalCode: '4000-441',
+          streetAddress: siteContent.contact.addressLine1,
+          addressLocality: siteContent.contact.city,
+          postalCode: siteContent.contact.postalCode,
           addressCountry: 'PT',
         },
         aggregateRating: {

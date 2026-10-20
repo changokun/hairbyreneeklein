@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '@/components/ui/AppIcon';
+import siteContent from '@/data/siteContent.json';
 
 const hours = [
   { day: 'Tuesday – Friday', time: '9:00 AM – 6:00 PM' },
@@ -48,12 +49,13 @@ export default function VisitSection() {
                 >
                   <Icon name="PhoneIcon" size={20} /> +351 912 345 678
                 </a>
-                <p className="text-[15px] text-muted-foreground">Call or message us on WhatsApp</p>
+                <p className="text-[15px] text-muted-foreground">Call or message {siteContent.site.firstName} on WhatsApp</p>
               </div>
               <address className="mt-5 text-lg not-italic leading-relaxed text-muted-foreground">
-                Rua de Santa Catarina 100, 2º andar
+								{siteContent.contact.addressLine1}
+								{siteContent.contact.addressLine2}
                 <br />
-                4000-441 Porto, Portugal
+                {siteContent.contact.postalCode} {siteContent.contact.city}, Portugal
               </address>
               <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
                 Our brand-new salon in the heart of Porto, a short walk from Bolhão metro station.
@@ -61,7 +63,7 @@ export default function VisitSection() {
               <div className="mt-6 overflow-hidden rounded-2xl border border-border">
                 <iframe
                   title="Map showing hairbyrenee salon location in Porto, Portugal"
-                  src="https://www.google.com/maps?q=Rua+de+Santa+Catarina+100,+4000-441+Porto,+Portugal&output=embed"
+                  src={`https://www.google.com/maps?q=${siteContent.contact.addressLine1.replace(/\s/g, '+')},+${siteContent.contact.postalCode}+${siteContent.contact.city},+Portugal&output=embed`}
                   className="h-64 w-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

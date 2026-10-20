@@ -3,7 +3,9 @@
     "name": "Hair by Renee Klein",
     "title": "Hair by Renee Klein | Professional Hair Styling in Porto",
     "description": "Expert English-speaking hair stylist in Porto.",
-    "tagline": "Transforming hair into art, one client at a time."
+    "tagline": "Transforming hair into art, one client at a time.",
+		"firstName": "Renee",
+		"lastName": "Klein"
   },
   "social": {
     "instagram": "https://instagram.com/hairbyreneeklein",
@@ -18,6 +20,15 @@
     "ctaText": "Book Your Appointment",
     "ctaLink": "/book"
   },
+	"contact": {
+		"addressLine1": "Rua de Belos Ares 54",
+		"addressLine2": "",
+		"city": "Porto",
+		"region": "Porto",
+		"postalCode": "4100-109",
+		"phone": "+351 924 848 679",
+		"email": "renee@gmail.com"
+	},
   "testimonials": [
     {
       "id": 1,
