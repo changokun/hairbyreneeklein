@@ -47,7 +47,7 @@ export default function ServicesSection() {
           {/* Color: cs-2 rs-2 */}
           <article
             data-reveal
-            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-[2rem] bg-foreground md:col-span-2 lg:row-span-2">
+            className="group relative flex lg:min-h-[420px] min-h-[580px] flex-col justify-end overflow-hidden rounded-[2rem] bg-foreground md:col-span-2 lg:row-span-2">
             
             <AppImage
               src="https://img.rocket.new/generatedImages/rocket_gen_img_1116ed683-1777489325462.png"
