@@ -33,10 +33,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2" aria-label="hairbyrenee home">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <Icon name="SparklesIcon" size={22} />
-          </span>
-          <span className="font-display text-xl tracking-tight text-foreground">hairbyrenee</span>
+          <span className="font-display text-xl tracking-tight text-foreground">Hair by Renee</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">

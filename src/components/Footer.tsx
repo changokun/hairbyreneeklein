@@ -24,10 +24,7 @@ export default function Footer() {
     <footer className="border-t border-border bg-background pb-28 md:pb-0">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-8 px-4 py-14 sm:px-6 md:flex-row md:items-center lg:px-8">
         <div className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <Icon name="SparklesIcon" size={20} />
-          </span>
-          <span className="font-display text-lg tracking-tight text-foreground">hairbyrenee</span>
+          <span className="font-display text-lg tracking-tight text-foreground">Hair by Renee</span>
         </div>
 
         <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-2">
