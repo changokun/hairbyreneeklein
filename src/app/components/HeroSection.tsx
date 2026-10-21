@@ -3,6 +3,12 @@ import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import CursorBlob from './CursorBlob';
 
+const nowBookingMonth = (() => {
+  const d = new Date();
+  d.setMonth(d.getMonth() + 1);
+  return d.toLocaleString('default', { month: 'long' });
+})();
+
 export default function HeroSection() {
   return (
     <section
@@ -19,7 +25,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-[15px] font-medium text-muted-foreground">
             
             <span className="h-2 w-2 rounded-full bg-success" />
-            Now booking October & November
+            Now booking {nowBookingMonth}
           </p>
 
           <h1
