@@ -33,7 +33,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2" aria-label="hairbyrenee home">
-          <span className="font-display text-xl tracking-tight text-foreground">Hair by Renee</span>
+          <span className="font-display text-xl tracking-tight text-foreground bg-background backdrop-blur-sm rounded-full px-4 py-1.5">Hair by Renee</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -41,7 +41,7 @@ export default function Header() {
             <a
               key={link?.href}
               href={link?.href}
-              className="text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground bg-background backdrop-blur-sm rounded-full px-4 py-1.5"
             >
               {link?.label}
             </a>
@@ -51,7 +51,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href="#book"
-            className="hidden min-h-[44px] items-center justify-center rounded-full bg-primary px-6 text-[15px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:inline-flex"
+            className="hidden min-h-[44px] items-center justify-center rounded-full bg-primary px-6 text-[15px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:inline-flex drop-shadow-lg [box-shadow:0_0_5px_rgba(255,255,255,0.8)]"
           >
             Book now
           </a>
@@ -60,7 +60,7 @@ export default function Header() {
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground md:hidden "
           >
             <Icon name={open ? 'XMarkIcon' : 'Bars3Icon'} size={22} />
           </button>
