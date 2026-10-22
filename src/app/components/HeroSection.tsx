@@ -40,9 +40,7 @@ export default function HeroSection() {
             data-reveal
             data-reveal-delay="200"
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            
-            Color, cuts, and finishes with Renee Klein in her brand-new Porto studio. One
-            stylist, one chair, an unhurried appointment built around your hair.
+						Cuts, color, and styling by Renee Klein. Thoughtful, personalized hair with lived-in color, effortless cuts, and results that work for your life — not just the day you leave the salon.
           </p>
 
           <div
@@ -114,14 +112,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="float-slow absolute -bottom-6 -left-4 rounded-2xl border border-border bg-card px-5 py-4 shadow-xl sm:-left-10">
-              <p className="font-display text-3xl text-foreground">12 yrs</p>
-              <p className="text-[15px] text-muted-foreground">behind the chair</p>
-            </div>
-            <div className="float-slower absolute -right-2 top-16 rounded-2xl bg-primary px-5 py-4 text-primary-foreground shadow-xl sm:-right-8">
-              <p className="font-display text-3xl">Renee Klein</p>
-              <p className="text-[15px] opacity-80">Owner & Master Colorist</p>
-            </div>
           </div>
         </div>
       </div>

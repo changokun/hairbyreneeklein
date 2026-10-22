@@ -1,8 +1,10 @@
 import React from 'react';
 import AppImage from '@/components/ui/AppImage';
 
+const yearsBehindChair = Math.floor((new Date() - new Date(2005, 8, 1)) / (1000 * 60 * 60 * 24 * 365))
+
 const stats = [
-{ value: '12', label: 'years behind the chair' },
+{ value: yearsBehindChair, label: 'years behind the chair' },
 { value: '4,800+', label: 'color appointments completed' },
 { value: '86%', label: 'of clients rebook in-studio' }];
 
@@ -26,10 +28,20 @@ export default function AboutSection() {
             </div>
             <div className="absolute -bottom-6 right-4 max-w-[220px] rotate-2 rounded-2xl bg-card p-5 shadow-xl sm:right-[-1.5rem]">
               <p className="font-display text-xl leading-snug text-foreground">
-                “I never rush a consultation. Your first 15 minutes are free.”
+                “I never rush a consultation. Your first 15 minutes are free.”
               </p>
             </div>
           </div>
+					{/* float-slow */}
+          <div className="absolute -bottom-6 -left-1 -rotate-3 rounded-2xl border border-border bg-card px-5 py-4 shadow-xl sm:-left-10">
+						<p className="font-display text-3xl text-foreground">{yearsBehindChair} yrs</p>
+						<p className="text-[15px] text-muted-foreground">behind the chair</p>
+					</div>
+					{/* float-slower */}
+					<div className="absolute -left-2 max-w-56 -top-4 -rotate-3 rounded-2xl bg-primary px-5 py-4 text-primary-foreground shadow-xl sm:-right-8 origin-left">
+						<p className="font-display text-3xl">Renee Klein</p>
+						<p className="text-[15px] opacity-80">Owner & Master Colorist</p>
+					</div>
         </div>
 
         <div className="flex flex-col justify-between lg:col-span-7">
@@ -41,23 +53,14 @@ export default function AboutSection() {
               data-reveal
               data-reveal-delay="100"
               className="font-display text-display-lg mt-4 font-medium text-foreground">
-              
-              A studio built for one client at a time.
+              Good hair, thoughtfully done. 
             </h2>
             <div
               data-reveal
               data-reveal-delay="200"
               className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
-              
               <p>
-                I trained in Chicago, spent six years in a busy downtown salon, and opened
-                hairbyrenee in Porto so I could give every client the time good hair actually takes.
-                No double-booking, no assistants rotating through your appointment.
-              </p>
-              <p>
-                I specialize in lived-in blondes, rich brunettes, and corrective color. If
-                you have been told your hair “can’t do that,” bring photos and your history.
-                We will make a plan together before anything touches your hair.
+								With {yearsBehindChair} years of experience working in New York City, Denver, Savannah, and Charlotte, Renee Klein brings a thoughtful, personalized approach to Porto. Her work focuses on lived-in blondes, naturally dimensional brunettes, and precision haircuts that grow out beautifully and are easy to style at home. With a focus on continued education and a strong foundation in cutting, color, and finishing, Renee creates hair that feels natural, effortless, and entirely your own — designed to look just as good weeks after your appointment as it does when you leave the salon.
               </p>
             </div>
           </div>
@@ -79,6 +82,7 @@ export default function AboutSection() {
           </a>
         </div>
       </div>
+
     </section>);
 
 }
