@@ -32,15 +32,16 @@ export default function AboutSection() {
               </p>
             </div>
           </div>
-					{/* float-slow */}
+					{/* float-slow
           <div className="absolute -bottom-6 -left-1 -rotate-3 rounded-2xl border border-border bg-card px-5 py-4 shadow-xl sm:-left-10">
 						<p className="font-display text-3xl text-foreground">{yearsBehindChair} yrs</p>
 						<p className="text-[15px] text-muted-foreground">behind the chair</p>
 					</div>
+						*/}
 					{/* float-slower */}
 					<div className="absolute -left-2 max-w-56 -top-4 -rotate-3 rounded-2xl bg-primary px-5 py-4 text-primary-foreground shadow-xl sm:-right-8 origin-left">
 						<p className="font-display text-3xl">Renee Klein</p>
-						<p className="text-[15px] opacity-80">Owner & Master Colorist</p>
+						<p className="text-[15px] opacity-80">Mamma Jamma of Hair</p>
 					</div>
         </div>
 
