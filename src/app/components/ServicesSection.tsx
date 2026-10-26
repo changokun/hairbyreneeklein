@@ -1,6 +1,7 @@
 import React from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
+import siteContent from '@/data/siteContent.json';
 
 /*
  BENTO GRID AUDIT
@@ -19,7 +20,6 @@ import Icon from '@/components/ui/AppIcon';
  Mobile (1 col): stacked, 6/6 ✓
 */
 
-const bookHref = 'https://example.com/book';
 
 export default function ServicesSection() {
   return (
@@ -43,8 +43,174 @@ export default function ServicesSection() {
           </p>
         </div>
 
+
+				
+				
+				
+				
+
+				
+				
+
+				
+							
+				
+				
+
+				
+				
+				
+				
+
+				
+				
+				
+				
         <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {/* Color: cs-2 rs-2 */}
+          {/* Cut */}
+          <article
+            data-reveal
+            data-reveal-delay="100"
+            className="flex min-h-[200px] flex-col justify-between rounded-[2rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
+              <Icon name="ScissorsIcon" size={24} />
+            </div>
+            <div className="mt-6">
+              <h3 className="font-display text-2xl text-card-foreground">Hair Cut</h3>
+              <p className="mt-1 text-[15px] text-muted-foreground">Expertly crafted to have your friends asking “who does your hair?” Includes haircut, shampoo, and styling</p>
+              <p className="font-display mt-4 text-2xl text-primary">from €65</p>
+							{/* https://reneeklein.setmore.com/services/ff88eedd-c1a8-4524-938e-56220328187a */}
+            </div>
+          </article>
+					
+          {/* short Cut */}
+          <article
+            data-reveal
+            data-reveal-delay="100"
+            className="flex min-h-[200px] flex-col justify-between rounded-[2rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
+              <Icon name="ScissorsIcon" size={24} />
+            </div>
+            <div className="mt-6">
+              <h3 className="font-display text-2xl text-card-foreground">Short haircut</h3>
+              <p className="mt-1 text-[15px] text-muted-foreground">This is for anyone with short hair — think pixie cut.</p>
+              <p className="font-display mt-4 text-2xl text-primary">from €50</p>
+							{/* https://reneeklein.setmore.com/services/c097fc96-e7ca-456c-84cc-84d9fcba05d8 */}
+            </div>
+          </article>
+
+          {/* Blowouts */}
+          <article
+            data-reveal
+            data-reveal-delay="200"
+            className="flex min-h-[220px] flex-col justify-between rounded-[2rem]  p-7 text-accent-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-1 lg:col-span-2 bg-accent">
+            
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-foreground">
+              <Icon name="WindowIcon" size={24} />
+            </div>
+            <div className="mt-6">
+              <h3 className="font-display text-2xl">Blow dry</h3>
+              <p className="mt-1 text-[15px] text-accent-foreground/85">
+							Shampoo, blowout, and styling.
+              </p>
+              <p className="font-display mt-4 text-2xl">from €40</p>
+            </div>
+						{/* https://reneeklein.setmore.com/services/32c4c055-a60a-47cc-9ecb-8d7c15658ac5 */}
+          </article>
+
+          {/* Roots */}
+					<article
+						data-reveal
+						data-reveal-delay="100"
+						className="flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-border bg-secondary p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-1 lg:col-span-2">
+						
+						<div className="flex items-start justify-between gap-4">
+							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-card text-accent">
+								<Icon name="ArrowPathIcon" size={24} />
+							</div>
+							<span className="rounded-full bg-muted px-4 py-1 text-[15px] text-muted-foreground">
+								Every 6–8 weeks
+							</span>
+						</div>
+						<div className="mt-6">
+							<h3 className="font-display text-2xl text-card-foreground">Just the Roots</h3>
+							<p className="mt-1 text-[15px] text-muted-foreground">
+							Covering grays or color balancing your new growth? This maintenance appointment utilizes permanent color and is not a lighting service. Includes shampoo and style
+							</p>
+							<p className="font-display mt-4 text-2xl text-primary">from €80</p>
+							{/* https://reneeklein.setmore.com/services/416ef7da-c23a-46df-a6a3-199e4df69665 */}
+						</div>
+					</article>
+
+					{/* color */}
+          <article
+						data-reveal
+						data-reveal-delay="100"
+						className="flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-1 lg:col-span-2">
+						
+						<div className="flex items-start justify-between gap-4">
+							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
+								<Icon name="ArrowPathIcon" size={24} />
+							</div>
+							{/* <span className="rounded-full bg-muted px-4 py-1 text-[15px] text-muted-foreground">
+								Every 6–8 weeks
+							</span> */}
+						</div>
+						<div className="mt-6">
+							<h3 className="font-display text-2xl text-card-foreground">All over color</h3>
+							<p className="mt-1 text-[15px] text-muted-foreground">
+							Root to tip. Using one color to either enhance your natural hair color or take it darker. Adding shine and vibrancy in one process. gloss, shampoo, styling.
+							</p>
+							<p className="font-display mt-4 text-2xl text-primary">from €120</p>
+							{/* https://reneeklein.setmore.com/services/e1999096-9521-4212-bbf5-9ee7d7f63476 */}
+						</div>
+					</article>
+
+          {/* Partial lightinh */}
+          <article
+            data-reveal
+            data-reveal-delay="200"
+            className="flex min-h-[200px] flex-col justify-between rounded-[2rem] bg-secondary p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-card text-accent">
+              <Icon name="SparklesIcon" size={24} />
+            </div>
+            <div className="mt-6">
+              <h3 className="font-display text-2xl text-secondary-foreground">Partial lighting</h3>
+              <p className="mt-1 text-[15px] text-muted-foreground">Don’t know what to choose? No matter your preference… lived in color, balayage, highlights, baby lights or low light! This option will be painted throughout the hairline, top, and crown of the head to add depth or balance light. Includes gloss, shampoo, and style.</p>
+              <p className="font-display mt-4 text-2xl text-primary">from €185</p>
+            </div>
+						{/* https://reneeklein.setmore.com/services/920961c8-f246-45cf-80c9-beb79b1a8519 */}
+          </article>
+
+          {/* full lighting */}
+          <article
+            data-reveal
+            data-reveal-delay="100"
+            className="relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[2rem] bg-primary p-7 text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-2 lg:col-span-3 sm:p-9">
+            
+            <div className="blob-primary pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full opacity-40" aria-hidden="true" />
+            <div className="relative flex items-start justify-between gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-foreground">
+                <Icon name="LinkIcon" size={24} />
+              </div>
+              <span className="rounded-full border border-primary-foreground/30 px-4 py-1 text-[15px]">
+                Consultation required
+              </span>
+            </div>
+            <div className="relative mt-8">
+              <h3 className="font-display text-3xl sm:text-4xl">Full lighting</h3>
+              <p className="mt-2 text-lg text-primary-foreground/80">
+							Don’t know what to choose? No matter your preference…. Lived in color, balayage, highlights, baby lights, or lowlights! This option will be painted throughout the entire head to maintain balance. Best for sizable changes. Includes gloss, shampoo and styling.
+              </p>
+              <p className="font-display mt-5 text-3xl">from €200</p>
+            </div>
+						{/* https://reneeklein.setmore.com/services/53bcd84f-e625-41fc-b19f-dd89fb2e4005 */}
+          </article>
+
+          {/* Example with image
           <article
             data-reveal
             className="group relative flex lg:min-h-[420px] min-h-[580px] flex-col justify-end overflow-hidden rounded-[2rem] bg-foreground md:col-span-2 lg:row-span-2">
@@ -61,14 +227,15 @@ export default function ServicesSection() {
               <p className="text-[15px] font-semibold uppercase tracking-widest text-background/80">
                 Signature
               </p>
-              <h3 className="font-display mt-2 text-4xl sm:text-5xl">Color & Highlights</h3>
+              <h3 className="font-display mt-2 text-4xl sm:text-5xl">All over color</h3>
               <p className="mt-3 max-w-md text-lg text-background/85">
-                Balayage, foilyage, all-over color and corrective work, designed to grow out softly.
+							Root to tip. Using one color to either enhance your natural hair color or take it darker. Adding shine and vibrancy in one process. gloss, shampoo, styling.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
-                <p className="font-display text-3xl">from $165</p>
+                <p className="font-display text-3xl">from €120</p>
                 <a
-                  href={bookHref}
+                  href="https://reneeklein.setmore.com/services/e1999096-9521-4212-bbf5-9ee7d7f63476"
+									target="_blank"
                   className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-accent px-6 text-[15px] font-semibold text-accent-foreground">
                   
                   Book color <Icon name="ArrowRightIcon" size={18} />
@@ -76,108 +243,15 @@ export default function ServicesSection() {
               </div>
             </div>
           </article>
+								*/}
+					
 
-          {/* Cut */}
-          <article
-            data-reveal
-            data-reveal-delay="100"
-            className="flex min-h-[200px] flex-col justify-between rounded-[2rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
-              <Icon name="ScissorsIcon" size={24} />
-            </div>
-            <div className="mt-6">
-              <h3 className="font-display text-2xl text-card-foreground">Precision Cut</h3>
-              <p className="mt-1 text-[15px] text-muted-foreground">Cut and style, 60 minutes</p>
-              <p className="font-display mt-4 text-2xl text-primary">from $85</p>
-            </div>
-          </article>
-
-          {/* Tone */}
-          <article
-            data-reveal
-            data-reveal-delay="200"
-            className="flex min-h-[200px] flex-col justify-between rounded-[2rem] bg-secondary p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-card text-accent">
-              <Icon name="SparklesIcon" size={24} />
-            </div>
-            <div className="mt-6">
-              <h3 className="font-display text-2xl text-secondary-foreground">Toner & Gloss</h3>
-              <p className="mt-1 text-[15px] text-muted-foreground">Neutralize brass, add shine</p>
-              <p className="font-display mt-4 text-2xl text-primary">from $65</p>
-            </div>
-          </article>
-
-          {/* Extensions: cs-2 */}
-          <article
-            data-reveal
-            data-reveal-delay="100"
-            className="relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[2rem] bg-primary p-7 text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-2 sm:p-9">
-            
-            <div className="blob-primary pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full opacity-40" aria-hidden="true" />
-            <div className="relative flex items-start justify-between gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-foreground/10">
-                <Icon name="LinkIcon" size={24} />
-              </div>
-              <span className="rounded-full border border-primary-foreground/30 px-4 py-1 text-[15px]">
-                Consultation required
-              </span>
-            </div>
-            <div className="relative mt-8">
-              <h3 className="font-display text-3xl sm:text-4xl">Hand-Tied Extensions</h3>
-              <p className="mt-2 max-w-md text-lg text-primary-foreground/80">
-                Seamless length and fullness using ethically sourced, hand-tied wefts.
-              </p>
-              <p className="font-display mt-5 text-3xl">from $450</p>
-            </div>
-          </article>
-
-          {/* Roots */}
-          <article
-            data-reveal
-            data-reveal-delay="100"
-            className="flex min-h-[220px] flex-col justify-between rounded-[2rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-1 lg:col-span-2">
-            
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
-                <Icon name="ArrowPathIcon" size={24} />
-              </div>
-              <span className="rounded-full bg-muted px-4 py-1 text-[15px] text-muted-foreground">
-                Every 6–8 weeks
-              </span>
-            </div>
-            <div className="mt-6">
-              <h3 className="font-display text-2xl text-card-foreground">Root Touch-Up</h3>
-              <p className="mt-1 text-[15px] text-muted-foreground">
-                Gray coverage and regrowth refresh, 90 minutes
-              </p>
-              <p className="font-display mt-4 text-2xl text-primary">from $95</p>
-            </div>
-          </article>
-
-          {/* Blowouts */}
-          <article
-            data-reveal
-            data-reveal-delay="200"
-            className="flex min-h-[220px] flex-col justify-between rounded-[2rem] bg-accent p-7 text-accent-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:col-span-1 lg:col-span-2">
-            
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-foreground/15">
-              <Icon name="WindowIcon" size={24} />
-            </div>
-            <div className="mt-6">
-              <h3 className="font-display text-2xl">Blowout & Style</h3>
-              <p className="mt-1 text-[15px] text-accent-foreground/85">
-                Smooth, bouncy, or sleek. Perfect for events.
-              </p>
-              <p className="font-display mt-4 text-2xl">from $55</p>
-            </div>
-          </article>
         </div>
 
         <div data-reveal className="mt-12 flex justify-center">
           <a
-            href={bookHref}
+            href={siteContent.site.bookingURL}
+						target="_blank"
             className="relative inline-flex min-h-[64px] w-full items-center justify-center gap-3 rounded-full bg-primary px-10 text-lg font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-1 sm:w-auto">
             
             Book your appointment

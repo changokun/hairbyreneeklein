@@ -1,5 +1,6 @@
 import React from 'react';
 import AppImage from '@/components/ui/AppImage';
+import siteContent from '@/data/siteContent.json';
 
 const yearsBehindChair = Math.floor((new Date() - new Date(2005, 8, 1)) / (1000 * 60 * 60 * 24 * 365))
 
@@ -18,19 +19,19 @@ export default function AboutSection() {
             <div className="overflow-hidden rounded-[2.5rem] bg-muted">
               <div className="relative h-[420px] w-full sm:h-[520px]">
                 <AppImage
-                  src="/assets/images/reneerustdress.jpg"
-                  alt="Portrait of Renee Klein, hair stylist and owner of hairbyrenee, smiling in her salon"
+                  src="/assets/images/reneeBlackTop.jpg"
+                  alt="Portrait of Renee Klein, hair stylist and owner of hairbyreneeklein, smiling in her salon"
                   fill
                   sizes="(max-width: 1024px) 90vw, 40vw"
-                  className="object-cover" />
+                  className="object-cover object-top" />
                 
               </div>
             </div>
-            <div className="absolute -bottom-6 right-4 max-w-[220px] rotate-2 rounded-2xl bg-card p-5 shadow-xl sm:right-[-1.5rem]">
+            {/* <div className="absolute -bottom-6 right-4 max-w-[220px] rotate-2 rounded-2xl bg-card p-5 shadow-xl sm:right-[-1.5rem]">
               <p className="font-display text-xl leading-snug text-foreground">
                 “I never rush a consultation. Your first 15 minutes are free.”
               </p>
-            </div>
+            </div> */}
           </div>
 					{/* float-slow
           <div className="absolute -bottom-6 -left-1 -rotate-3 rounded-2xl border border-border bg-card px-5 py-4 shadow-xl sm:-left-10">
@@ -40,8 +41,8 @@ export default function AboutSection() {
 						*/}
 					{/* float-slower */}
 					<div className="absolute -left-2 max-w-56 -top-4 -rotate-3 rounded-2xl bg-primary px-5 py-4 text-primary-foreground shadow-xl sm:-right-8 origin-left">
-						<p className="font-display text-3xl">Renee Klein</p>
-						<p className="text-[15px] opacity-80">Mamma Jamma of Hair</p>
+						<p className="font-display text-3xl">{siteContent.site.firstName} {siteContent.site.lastName}</p>
+						<p className="text-[15px] opacity-80">Your new stylist</p>
 					</div>
         </div>
 
@@ -66,17 +67,18 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-3">
+          {/* <div className="mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-3">
             {stats?.map((s, i) =>
             <div key={s?.label} data-reveal data-reveal-delay={String(300 + i * 100)}>
                 <p className="font-display text-5xl text-primary">{s?.value}</p>
                 <p className="mt-2 text-[15px] text-muted-foreground">{s?.label}</p>
               </div>
             )}
-          </div>
+          </div> */}
 
           <a
-            href="https://example.com/book"
+            href={`${siteContent.site.bookingURL}`}
+						target="_blank"
             className="mt-10 inline-flex min-h-[60px] w-full items-center justify-center rounded-full bg-primary px-8 text-lg font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-1 sm:w-fit">
             
             Book a consultation

@@ -2,6 +2,7 @@ import React from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import CursorBlob from './CursorBlob';
+import siteContent from '@/data/siteContent.json';
 
 const nowBookingMonth = (() => {
   const d = new Date();
@@ -40,7 +41,7 @@ export default function HeroSection() {
             data-reveal
             data-reveal-delay="200"
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-						Cuts, color, and styling by Renee Klein. Thoughtful, personalized hair with lived-in color, effortless cuts, and results that work for your life — not just the day you leave the salon.
+						Cuts, color, and styling by {siteContent.site.firstName} {siteContent.site.lastName}. Thoughtful, personalized hair with lived-in color, effortless cuts, and results that work for your life — not just the day you leave the salon.
           </p>
 
           <div
@@ -50,7 +51,8 @@ export default function HeroSection() {
             
             <a
               id="book"
-              href="https://example.com/book"
+              href={`${siteContent.site.bookingURL}`}
+							target="_blank"
               className="cta-pulse relative inline-flex min-h-[64px] items-center justify-center gap-3 rounded-full bg-accent px-10 text-lg font-semibold text-accent-foreground shadow-xl transition-transform duration-300 hover:-translate-y-1">
               
               Book your appointment
@@ -64,7 +66,7 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <div
+          {/* <div
             data-reveal
             data-reveal-delay="400"
             className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -90,10 +92,12 @@ export default function HeroSection() {
               Read all reviews on Google
               <Icon name="ArrowUpRightIcon" size={16} />
             </a>
-          </div>
+          </div> */}
+
+
         </div>
 
-        <div className="relative hidden lg:col-span-5 md:block">
+        <div className="relative hidden lg:col-span-5 lg:block">
           <div data-reveal data-reveal-delay="150" className="relative mx-auto w-full max-w-md">
             <div
               aria-hidden="true"
@@ -101,9 +105,10 @@ export default function HeroSection() {
             
             <div className="relative overflow-hidden arch-top rounded-b-[2.5rem] bg-secondary">
               <div className="relative h-[480px] w-full sm:h-[560px]">
+								{/* src="https://img.rocket.new/generatedImages/rocket_gen_img_1ea36d5dd-1772995190375.png" */}
                 <AppImage
-                  src="https://img.rocket.new/generatedImages/rocket_gen_img_1ea36d5dd-1772995190375.png"
-                  alt="Smiling woman hairstylist with long wavy auburn hair standing in a bright salon"
+								src="/assets/images/portfolioBlonde.jpg"
+                  alt="long wavy auburn hair standing in a bright salon"
                   fill
                   priority
                   sizes="(max-width: 1024px) 90vw, 40vw"

@@ -4,16 +4,19 @@ import siteContent from '@/data/siteContent.json';
 import { FaWhatsapp, FaInstagram, FaTiktok, FaFacebook, FaEnvelope } from 'react-icons/fa6';
 
 const hours = [
-  { day: 'Tuesday – Friday', time: '9:00 AM – 6:00 PM' },
-  { day: 'Saturday', time: '8:00 AM – 4:00 PM' },
-  { day: 'Sunday & Monday', time: 'Closed' },
+  { day: 'Monday', time: '10:00 AM – 3:30 PM' },
+  { day: 'Tuesday', time: 'by arrangement only' },
+  { day: 'Wednesday', time: 'by arrangement only' },
+  { day: 'Thursday', time: '10:00 AM – 3:30 PM' },
+  { day: 'Friday', time: '10:00 AM – 3:30 PM' },
+  { day: 'Saturday', time: 'by arrangement only' },
+  { day: 'Sunday', time: 'by arrangement only' }
 ];
 
 const policies = [
-  'Cancel or reschedule at least 48 hours ahead at no charge.',
+  'Cancel or reschedule at least 24 hours ahead at no charge.',
   'Late cancellations and no-shows are charged 50% of the booked service.',
-  'Arriving more than 15 minutes late may require rescheduling.',
-  'A card is held at booking; you are charged only after your visit.',
+  'Arriving more than 15 minutes late may require rescheduling.'
 ];
 
 
@@ -30,10 +33,15 @@ const socials: Record<string, { icon: React.JSX.Element; href: string }> = {
 };
 // emailLinkQueryVars
 // WhatsAppLinkQueryVars
+const nowBookingMonth = (() => {
+  const d = new Date();
+  d.setMonth(d.getMonth() + 1);
+  return d.toLocaleString('default', { month: 'long' });
+})();
 
 export default function VisitSection() {
   return (
-    <section id="visit" className="relative pt-16 pb-20 md:pt-24 md:pb-28">
+    <section id="visit" className="relative pt-16 pb-20 md:pt-24 md:pb-28 bg-secondary">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p data-reveal className="text-[15px] font-semibold uppercase tracking-[0.2em] text-accent">
@@ -51,16 +59,16 @@ export default function VisitSection() {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
                 <Icon name="MapPinIcon" size={24} />
               </div>
-              <h3 className="font-display mt-6 text-3xl text-card-foreground">Find the salon</h3>
+              <h3 className="font-display mt-6 text-3xl text-card-foreground">Find APO Studio</h3>
               <div className="mt-3 flex flex-col gap-2">
 								<p className="text-[15px] text-muted-foreground">Call or message {siteContent.site.firstName} on:</p>
                 <a
-                  href="tel:+351912345678"
+                  href={`tel:+${siteContent.contact.phone.replace(/[^\d]+/ig, '')}`}
                   className="inline-flex items-center gap-2 text-lg font-semibold text-card-foreground underline-offset-4 hover:underline"
                 >
-                  <Icon name="PhoneIcon" size={20} /> +351 912 345 678
+                  <Icon name="PhoneIcon" size={20} /> {siteContent.contact.phone} 🇺🇸
                 </a>
-								<a href="https://wa.me/${siteContent.contact.phone.replace(/\D/g, '')}">
+								<a href={`https://wa.me/${siteContent.contact.phone.replace(/\D/g, '')}`} target="_blank">
 									<FaWhatsapp className="text-[#25D366] inline" size={20} /> WhatsApp
 								</a>
               </div>
@@ -71,12 +79,13 @@ export default function VisitSection() {
                 {siteContent.contact.postalCode} {siteContent.contact.city}, Portugal
               </address>
               <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
-                Our brand-new salon in the heart of Porto, a block from the {new Date() < new Date('2027-06-30') ? 'new' : ''} Guerra Junqueiro Metrobus station.
+                APO Studio is just off Boa Vista, a block from the {new Date() < new Date('2027-06-30') ? 'new' : ''} Guerra Junqueiro Metrobus station.
               </p>
               <div className="mt-6 overflow-hidden rounded-2xl border border-border">
+								{/* src={`https://www.google.com/maps?q=APO+Studio+Porto&output=embed`} */}
                 <iframe
                   title="Map showing hairbyrenee salon location in Porto, Portugal"
-                  src={`https://www.google.com/maps?q=${siteContent.contact.addressLine1.replace(/\s/g, '+')},+${siteContent.contact.postalCode}+${siteContent.contact.city},+Portugal&output=embed`}
+                  src={`https://www.google.com/maps?q=APO+Studio+${siteContent.contact.addressLine1.replace(/\s/g, '+')},+${siteContent.contact.postalCode}+${siteContent.contact.city},+Portugal&output=embed`}
                   className="h-64 w-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -86,7 +95,8 @@ export default function VisitSection() {
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={`https://www.google.com/maps/dir/?api=1&destination=${siteContent.contact.addressLine1.replace(/\s/g, '+')},+${siteContent.contact.postalCode}+${siteContent.contact.city},+Portugal`}
+                // href={`https://www.google.com/maps/dir/?api=1&destination=${siteContent.contact.addressLine1.replace(/\s/g, '+')},+${siteContent.contact.postalCode}+${siteContent.contact.city},+Portugal`}
+                href={`https://www.google.com/maps/dir/?api=1&destination=APO Studio, Porto`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-full border border-primary px-6 text-[16px] font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -182,10 +192,11 @@ export default function VisitSection() {
               Ready for hair you love?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/80">
-              Appointments for October and November are filling up. Pick a time that suits you; it takes under a minute.
+              Appointments for {nowBookingMonth} are filling up. Pick a time that suits you; it takes under a minute.
             </p>
             <a
-              href="https://example.com/book"
+              href={`${siteContent.site.bookingURL}`}
+							target="_blank"
               className="cta-pulse relative mt-10 inline-flex min-h-[68px] w-full items-center justify-center gap-3 rounded-full bg-accent px-10 text-xl font-semibold text-accent-foreground shadow-2xl transition-transform duration-300 hover:-translate-y-1 sm:w-auto sm:px-14"
             >
               Book your appointment

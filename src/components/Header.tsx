@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
+import siteContent from '@/data/siteContent.json';
 
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Reviews', href: '#reviews' },
   { label: 'Visit', href: '#visit' },
 ];
+// { label: 'Reviews', href: '#reviews' },
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -50,7 +51,8 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#book"
+            href={`${siteContent.site.bookingURL}`}
+						target="_blank"
             className="hidden min-h-[44px] items-center justify-center rounded-full bg-primary px-6 text-[15px] font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:inline-flex drop-shadow-lg [box-shadow:0_0_5px_rgba(255,255,255,0.8)]"
           >
             Book now

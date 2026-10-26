@@ -5,16 +5,17 @@
     "description": "Expert English-speaking hair stylist in Porto.",
     "tagline": "Transforming hair into art, one client at a time.",
 		"firstName": "Renee",
-		"lastName": "Klein"
+		"lastName": "Klein",
+		"bookingURL": "https://reneeklein.setmore.com?utm_source=website&utm_medium=web&utm_campaign=cta"
   },
   "social": {
     "Instagram": "https://instagram.com/hairbyreneeklein",
     "Facebook": "",
     "TikTok": "",
     "emailLinkQueryVarsXXX": "subject=Hallo&body=beepbooop",
-    "phone": "+351 924 848 679",
-    "sms": "+351 924 848 679",
-    "WhatsApp": "+351 924 848 679",
+    "phone": "+1 719 243 7551",
+    "sms": "+1 719 243 7551",
+    "WhatsApp": "+1 719 243 7551",
     "WhatsAppLinkQueryVars": "text=beepboop"
   },
   "hero": {
@@ -29,7 +30,7 @@
 		"city": "Porto",
 		"region": "Porto",
 		"postalCode": "4100-109",
-		"phone": "+351 924 848 679"
+		"phone": "+1 719 243 7551"
 	},
   "testimonials": [
     {

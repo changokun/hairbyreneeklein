@@ -6,10 +6,10 @@ import siteContent from '@/data/siteContent.json';
 const footerLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Reviews', href: '#reviews' },
   { label: 'Visit', href: '#visit' },
-  { label: 'Book', href: '#book' },
+  { label: 'Book', href: siteContent.site.bookingURL },
 ];
+// { label: 'Reviews', href: '#reviews' },
 
 const socialIcons: Record<string, string> = {
   instagram: 'CameraIcon',
@@ -32,6 +32,7 @@ export default function Footer() {
             <a
               key={link?.href}
               href={link?.href}
+							target={link?.href.indexOf('http') !== -1 ? "_blank" : ""}
               className="inline-flex min-h-[44px] items-center text-[15px] font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link?.label}
@@ -59,11 +60,11 @@ export default function Footer() {
                 );
               })}
           </div>
-          <p className="text-[15px] text-muted-foreground">
+          {/* <p className="text-[15px] text-muted-foreground">
             <Link href="#visit" className="underline-offset-4 hover:underline">Privacy</Link>
             {' · '}
             <Link href="#visit" className="underline-offset-4 hover:underline">Terms</Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
