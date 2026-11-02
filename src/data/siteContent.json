@@ -12,14 +12,11 @@
     "Instagram": "https://instagram.com/hairbyreneeklein",
     "Facebook": "",
     "TikTok": "",
-    "emailLinkQueryVarsXXX": "subject=Hallo&body=beepbooop",
-    "phone": "+1 719 243 7551",
-    "sms": "+1 719 243 7551",
-    "WhatsApp": "+1 719 243 7551",
-    "WhatsAppLinkQueryVars": "text=beepboop"
+		"WhatsApp": "+1 719 243 7551",
+		"WhatsAppLinkQueryVarsXXX": "text=beepboop"
   },
   "hero": {
-    "headline": "Beautiful Hair Starts Here",
+		"headline": "Beautiful Hair Starts Here",
     "subheadline": "Professional styling for every occasion and every hair type.",
     "ctaText": "Book Your Appointment",
     "ctaLink": "/book"
@@ -30,7 +27,10 @@
 		"city": "Porto",
 		"region": "Porto",
 		"postalCode": "4100-109",
-		"phone": "+1 719 243 7551"
+		"phone": "+1 719 243 7551",
+		"comment": "client does not want her email on site",
+		"emailLinkQueryVarsXXX": "subject=Hallo&body=beepbooop",
+		"sms": "+1 719 243 7551"
 	},
   "testimonials": [
     {

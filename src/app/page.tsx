@@ -10,6 +10,20 @@ import RevealObserver from './components/RevealObserver';
 import siteContent from '@/data/siteContent.json';
 import services from '@/data/services.json';
 
+// Helper to format phone number for JSON-LD: strip to digits and prepend + for US numbers
+const formatPhoneForJsonLd = (phone: string): string => {
+	const digits = phone.replace(/\D/g, '');
+	// US numbers: if starts with 1, it's already full format, just add +
+	if (digits.startsWith('1') && digits.length === 11) {
+		return `+${digits}`;
+	}
+	// If it's 10 digits, assume US and prepend +1
+	if (digits.length === 10) {
+		return `+1${digits}`;
+	}
+	return digits;
+};
+
 export default function HomePage() {
 	const jsonLd = {
 		'@context': 'https://schema.org',
@@ -21,7 +35,7 @@ export default function HomePage() {
 				"jobTitle": "Hair Stylist & Colorist",
 				"description": "Independent hair stylist and colorist with 21 years of experience in New York City, Denver, Savannah, and Charlotte, now based in Porto, Portugal. Specializes in lived-in blondes, naturally dimensional brunettes, and precision haircuts that grow out beautifully.",
 				"url": "https://hairbyreneeklein.com",
-				"telephone": "+1-719-243-7551",
+				"telephone": formatPhoneForJsonLd(siteContent.contact.phone),
 				"knowsAbout": [
 					"Lived-in blonde color",
 					"Dimensional brunette color",
@@ -52,7 +66,7 @@ export default function HomePage() {
 				},
 				"sameAs": [
 					"https://www.instagram.com/hairbyreneeklein",
-					"https://wa.me/17192437551"
+					"https://wa.me/" + siteContent.contact.phone.replace(/[^\d]+/ig, '')
 				]
 			},
 			{
