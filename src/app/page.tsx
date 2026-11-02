@@ -105,7 +105,7 @@ export default function HomePage() {
 				<HeroSection />
 				<AboutSection />
 				<ServicesSection />
-				{/* <ReviewsSection /> */}
+				<ReviewsSection />
 				<VisitSection />
 			</main>
 			<Footer />
