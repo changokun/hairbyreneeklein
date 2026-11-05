@@ -155,3 +155,53 @@
 .animate-fadeInUp {
   animation: fadeInUp 0.5s ease-out forwards;
 }
+
+
+
+/* Custom c15t button styling - add to tailwind.css */
+[class*="c15t-ui-footer"] button {
+  padding: 0.75rem 1.5rem;           /* px-6 py-2.5 */
+  border-radius: 9999px;             /* rounded-full */
+  font-size: 0.9375rem;             /* text-[15px] */
+  font-weight: 600;                 /* font-semibold */
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+	box-shadow: none;
+	border: none;
+}
+
+/* Accept button - uses your accent color */
+[class*="c15t-ui-footer"] button[data-action="accept"],
+[class*="c15t-ui-footer"] button[data-action="save"] {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  border: none;
+}
+[class*="c15t-ui-footer"] button[data-action="accept"]:hover,
+[class*="c15t-ui-footer"] button[data-action="save"]:hover {
+  background-color: color-mix(in srgb, var(--accent) 90%, transparent);
+}
+
+/* Reject button - uses your border/background colors */
+[class*="c15t-ui-footer"] button[data-action="reject"] {
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+[class*="c15t-ui-footer"] button[data-action="reject"]:hover {
+  background-color: var(--secondary);
+}
+
+/* Customize button - same as reject */
+[class*="c15t-ui-footer"] button[data-action="customize"] {
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+[class*="c15t-ui-footer"] button[data-action="customize"]:hover {
+  background-color: var(--secondary);
+}
+
+/* Hide Inth branding */
+[data-branding="inth"] {
+  display: none;
+}
