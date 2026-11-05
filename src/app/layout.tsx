@@ -33,17 +33,22 @@ export const metadata: Metadata = {
 	metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
 	title: 'hairbyrenee — Color, Cuts & Blowouts in Porto',
 	description:
-		'hairbyrenee is a new women’s hair salon in Porto, Portugal offering color, cuts, extensions and blowouts with one trusted stylist.',
+		'Renee Klein is styling women’s hair in Porto, Portugal offering color, cuts, extensions and blowouts with a trusted American stylist.',
 	alternates: { canonical: '/' },
 	openGraph: {
 		title: 'hairbyrenee — Women’s Hair in Porto',
-		description: 'Color, cuts, extensions and blowouts with one trusted stylist.',
+		description: 'Renee Klein is styling women’s hair in Porto, Portugal offering color, cuts, extensions and blowouts with a trusted American stylist.',
 		images: [{ url: '/assets/images/app_logo.png', width: 1200, height: 630 }],
 	},
 	icons: {
-		icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
+		icon: [
+			{ url: '/assets/icons/favicon.ico', type: 'image/x-icon' },
+			{ url: '/assets/icons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+		],
+		apple: '/assets/icons/apple-touch-icon.png',
 	},
 };
+
 
 export default function RootLayout({
 	children,
