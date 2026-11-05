@@ -191,6 +191,7 @@ const reviews = [
 
 ];
 
+let pageBreakOn = 0
 // special shuffle that keeps pairs of similar-length quotes together
 const shuffleArray = <T,>(array: T[]): T[] => {
 	// first sort the array on quote.length
@@ -207,24 +208,93 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 	}
 
 	pile.sort((a, b) => a.quote.length - b.quote.length);
-
+	
 	let ret = []
+
 	while(pile.length > 1) {
 		let even = 2 * Math.floor(Math.random() * (pile.length / 2));
 		if(pile[even + 1]) {
+			pile[even].gridClasses = ''
+			pile[even + 1].gridClasses = ''
 			if(pile[even].quote.length > 150 && Math.random() > 0.5) {
-				pile[even].gridClasses = 'md:col-span-2'
-				pile[even + 1].gridClasses = 'md:col-span-2'
+				pile[even].gridClasses += 'md:max-lg:col-span-2'
+				pile[even + 1].gridClasses += 'md:max-lg:col-span-2'
 			}
+
 			ret.push(pile[even])
 			ret.push(pile[even + 1])
 			pile.splice(even, 2)
 		}
 	}
-	
-
-
+	first.gridClasses = '';
 	ret.unshift(first)
+
+	
+	let fills = [[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]] // reflects starting with the aggregate in upper left.
+	for(let r=0; r<ret.length; r++) {
+
+		// lg
+		// get next starting point in first row
+		let myFill = 0
+		
+		for(let x=0; x<4; x++) {
+			if(fills[0][x] === 0) {
+				myFill = x
+				fills[0][x] = 1
+				break
+			}
+		}
+		console.log(r, 'myfill', myFill, 'my length:', ret[r].quote.length, ret[r].name)
+		
+		if(ret[r].quote.length > 600) {
+			// i can always go vertical... but for now let's only do that if we can't go horizontal
+			if(myFill <= 1 && fills[0][myFill+1] == 0 && fills[0][myFill+2] == 0) {
+				// can go horisontal to right
+				ret[r].gridClasses += ' lg:col-span-3'
+				fills[0][myFill+1] = 1
+				fills[0][myFill+2] = 1
+				console.log('No. ' + r + ' is going 3 across')
+			} else {
+				ret[r].gridClasses += ' lg:row-span-3'
+				fills[1][myFill] = 1
+				fills[2][myFill] = 1
+				console.log('No. ' + r + ' is going 3 DOWN')
+			}
+			
+		} else if(ret[r].quote.length > 265) {
+			if(myFill <= 2 && fills[0][myFill+1] == 0) {
+				ret[r].gridClasses += ' lg:col-span-2'
+				fills[0][myFill+1] = 1
+				console.log('No. ' + r + ' is going 2 across')
+			} else {
+				ret[r].gridClasses += ' lg:row-span-2'
+				fills[1][myFill] = 1
+				console.log('No. ' + r + ' is going 2 DOWN')
+			}
+			
+		} else {
+			// we already filled in the fills. no spans. this is one square. the default.
+		}
+		
+		// if we filled the first row, move it up like upside down tetris
+		console.log('fills is now', JSON.stringify(fills))
+		if(fills[0].every(x => x === 1)) {
+			fills.shift()
+			fills.push([0,0,0,0])
+			console.log('NEW ROW', JSON.stringify(fills))
+			// if the first row is all empty, this is a good break candidate.
+			if(r > 6 && ! pageBreakOn && fills[0].every(x => x === 0)) {
+				pageBreakOn = r + 1
+				console.log('should pageBreakOn', pageBreakOn)
+			}
+
+		}
+	}
+	if( ! pageBreakOn) {
+		pageBreakOn = 9
+	}
+
+
 	// console.log('ret', ret)
 	// ret.map(i => console.log(i.quote.length))
 
@@ -275,12 +345,16 @@ const formatRelativeDate = (dateString: string): string | null => {
 
 export default function ReviewsSection() {
   const [shuffledReviews, setShuffledReviews] = useState<typeof reviews>([]);
+	const [showAllReviews, setShowAllReviews] = useState(false);
   useEffect(() => {
 		let rs = shuffleArray(reviews)
     setShuffledReviews(rs);
   }, []);
   
   if (shuffledReviews.length === 0) return null;
+
+	let havePageBreak = false
+
 // console.log('shuffledReviews', shuffledReviews)
   return (
     <section id="reviews" className="relative bg-primary pt-16 pb-20 text-primary-foreground md:pt-24 md:pb-24">
@@ -298,6 +372,7 @@ export default function ReviewsSection() {
           {/* Aggregate panel as first card */}
           <article
             data-reveal
+            data-reveal-delay="100"
             className="flex flex-col justify-between rounded-[2rem] bg-background p-8 text-foreground"
           >
             <div>
@@ -336,15 +411,25 @@ export default function ReviewsSection() {
           {/* Review cards - shuffled */}
           {shuffledReviews.map((r, i) => {
             if (r.quote.indexOf(' ') === -1) return null;
+						// Only render first 6 when collapsed, or all when expanded
+						if (!showAllReviews && i >= pageBreakOn) return null;
+
+						// Determine if this review is newly revealed (for animation)
+						const isNewlyRevealed = showAllReviews && i >= pageBreakOn;
+
             return (
               <article
                 key={r.name + i}
-                data-reveal
-                data-reveal-delay={String(100 + i * 100)}
-                className={`flex flex-col justify-between rounded-[2rem] border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur-sm ${r.gridClasses}`}
+								data-reveal
+								data-reveal-delay="100"
+                className={`flex flex-col justify-between rounded-[2rem] border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur-sm ${r.gridClasses ? r.gridClasses : ''} ${
+									isNewlyRevealed ? 'animate-fadeInUp opacity-0' : ''
+								}`}
               >
                 <div>
                   <Stars />
+									{/* {r.quote.length} | 
+									{r.gridClasses} */}
                   <p className="font-display mt-4 text-xl leading-snug sm:text-2xl">“{r.quote}”</p>
                 </div>
                 <div className="mt-6 flex items-center justify-between gap-3 border-t border-primary-foreground/15 pt-4">
@@ -362,6 +447,17 @@ export default function ReviewsSection() {
             );
           })}
         </div>
+
+				{!showAllReviews && shuffledReviews.length > 6 && (
+					<div className="mt-8 text-center">
+						<button
+							onClick={() => setShowAllReviews(true)}
+							className="text-[15px] text-primary-foreground/70 hover:text-primary-foreground underline underline-offset-4 transition-colors"
+						>
+							View all {shuffledReviews.length} reviews
+						</button>
+					</div>
+				)}
 
         <div data-reveal className="mt-12 flex justify-center">
           <a
