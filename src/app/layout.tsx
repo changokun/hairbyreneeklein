@@ -1,6 +1,12 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
+import {
+	ConsentBanner,
+	ConsentDialog,
+	ConsentDialogLink,
+	ConsentRoot,
+} from 'c15t/next';
+import { resolveConsent } from 'c15t/next/server';
 import { DM_Sans, Fraunces } from 'next/font/google';
 import '../styles/tailwind.css';
 
@@ -46,24 +52,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
-			<head>
-				{process.env.NODE_ENV === 'production' && (
-					<>
-					<Script
-						src="https://www.googletagmanager.com/gtm.js?id=GTM-M2MCGTDJ"
-						strategy="afterInteractive"
-					/>
-					<Script id="google-analytics" strategy="afterInteractive">
-						{`
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-					`}
-					</Script>
-					</>
-				)}
-			</head>
-			<body className={dmSans.className}>{children}
+			<body className={dmSans.className}>
+				<ConsentRoot state={resolveConsent()}>
+					{children}
+					<ConsentBanner />
+					<ConsentDialog />
+				</ConsentRoot>
 			</body>
 		</html>
 	);

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 import siteContent from '@/data/siteContent.json';
+import { ConsentDialogLink } from 'c15t/next';
 
 const footerLinks = [
   { label: 'About', href: '#about' },
@@ -60,11 +61,11 @@ export default function Footer() {
                 );
               })}
           </div>
-          {/* <p className="text-[15px] text-muted-foreground">
-            <Link href="#visit" className="underline-offset-4 hover:underline">Privacy</Link>
-            {' · '}
-            <Link href="#visit" className="underline-offset-4 hover:underline">Terms</Link>
-          </p> */}
+          <p className="text-[15px] text-muted-foreground">
+            <ConsentDialogLink className="underline-offset-4 hover:underline">
+              Privacy settings
+            </ConsentDialogLink>
+          </p>
         </div>
       </div>
     </footer>
