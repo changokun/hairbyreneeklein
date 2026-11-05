@@ -66,12 +66,13 @@ This project uses Tailwind CSS for styling with the following features:
 - `npm run format` - Format code with Prettier
 
 ## 📱 Deployment
+commit changes and push.
+ssh to server with nodejs@hairbyreneeklein
+cd in hairbyreneeklein.com
+git pull
+npm run build
+pm2 restart hairbyreneeklein
 
-Build the application for production:
-
-  ```bash
-  npm run build
-  ```
 
 ## 📚 Learn More
 
