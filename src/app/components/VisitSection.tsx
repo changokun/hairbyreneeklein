@@ -1,17 +1,8 @@
 import React from 'react';
 import Icon from '@/components/ui/AppIcon';
 import siteContent from '@/data/siteContent.json';
+import hours from '@/data/hours.json';
 import { FaWhatsapp, FaInstagram, FaTiktok, FaFacebook, FaEnvelope } from 'react-icons/fa6';
-
-const hours = [
-  { day: 'Monday', time: '10:00 AM – 3:30 PM' },
-  { day: 'Tuesday', time: 'by arrangement only' },
-  { day: 'Wednesday', time: 'by arrangement only' },
-  { day: 'Thursday', time: '10:00 AM – 3:30 PM' },
-  { day: 'Friday', time: '10:00 AM – 3:30 PM' },
-  { day: 'Saturday', time: 'by arrangement only' },
-  { day: 'Sunday', time: 'by arrangement only' }
-];
 
 const policies = [
   'Cancel or reschedule at least 24 hours ahead at no charge.',
@@ -38,6 +29,23 @@ const nowBookingMonth = (() => {
   d.setMonth(d.getMonth() + 1);
   return d.toLocaleString('default', { month: 'long' });
 })();
+
+// Helper to format 24-hour time to 12-hour format
+const formatTime = (time24: string): string => {
+  const [hours, minutes] = time24.split(':');
+  const hourNum = parseInt(hours, 10);
+  const ampm = hourNum >= 12 ? 'PM' : 'AM';
+  const hour12 = hourNum % 12 || 12;
+  return `${hour12}:${minutes} ${ampm}`;
+};
+
+// Helper to get display text for a hour entry
+const getHourDisplay = (h: any): string => {
+  if (h.opens && h.closes) {
+    return `${formatTime(h.opens)} – ${formatTime(h.closes)}`;
+  }
+  return h.message || '';
+};
 
 export default function VisitSection() {
   return (
@@ -125,10 +133,12 @@ export default function VisitSection() {
                 {hours.map((h) => (
                   <li key={h.day} className="flex items-center justify-between gap-4 py-3">
                     <span className="text-[16px] font-medium text-secondary-foreground">{h.day}</span>
-                    <span className="text-[16px] text-muted-foreground">{h.time}</span>
+                    <span className="text-[16px] text-muted-foreground">{getHourDisplay(h)}</span>
                   </li>
                 ))}
               </ul>
+							<br />
+							<p>If you can’t find a time that works or need to book on Saturday or Sunday please text⁠/⁠WhatsApp&nbsp;me.</p>
             </div>
 
             <div data-reveal data-reveal-delay="200" className="rounded-[2rem] border border-border bg-card p-8">
@@ -189,10 +199,10 @@ export default function VisitSection() {
           <div className="blob-secondary float-slower pointer-events-none absolute -bottom-20 -right-10 h-80 w-80 rounded-full opacity-30" aria-hidden="true" />
           <div className="relative mx-auto max-w-3xl">
             <h2 className="font-display text-display-lg font-medium">
-              Ready for hair you love?
+              Ready for hair you&nbsp;love?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/80">
-              Appointments for {nowBookingMonth} are filling up. Pick a time that suits you; it takes under a minute.
+              Appointments for {nowBookingMonth} are filling up. Pick a time that suits&nbsp;you; it takes under&nbsp;a&nbsp;minute.
             </p>
             <a
               href={`${siteContent.site.bookingURL}`}

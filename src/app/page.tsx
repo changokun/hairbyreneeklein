@@ -9,6 +9,7 @@ import VisitSection from './components/VisitSection';
 import RevealObserver from './components/RevealObserver';
 import siteContent from '@/data/siteContent.json';
 import services from '@/data/services.json';
+import hours from '@/data/hours.json';
 
 // Helper to format phone number for JSON-LD: strip to digits and prepend + for US numbers
 const formatPhoneForJsonLd = (phone: string): string => {
@@ -81,14 +82,24 @@ export default function HomePage() {
 					"postalCode": "4100-109",
 					"addressCountry": "PT"
 				},
-				"openingHoursSpecification": [
-					{
-						"@type": "OpeningHoursSpecification",
-						"dayOfWeek": ["Monday", "Thursday", "Friday"],
-						"opens": "10:00",
-						"closes": "15:30"
-					}
-				],
+				"openingHoursSpecification": (() => {
+					const openHours = hours.filter(h => h.opens && h.closes);
+					return openHours.reduce((acc, h) => {
+						const existing = acc.find((item: any) => 
+							item.opens === h.opens && item.closes === h.closes);
+						if (existing) {
+							existing.dayOfWeek.push(h.day);
+						} else {
+							acc.push({
+								"@type": "OpeningHoursSpecification",
+								"dayOfWeek": [h.day],
+								"opens": h.opens,
+								"closes": h.closes
+							});
+						}
+						return acc;
+					}, [] as any[]);
+				})(),
 				"employee": { "@id": "https://hairbyreneeklein.com/#about" }
 			}
 		]

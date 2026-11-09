@@ -1,0 +1,9 @@
+[
+  { "day": "Monday", "opens": "10:00", "closes": "17:30" },
+  { "day": "Tuesday", "message": "by arrangement only" },
+  { "day": "Wednesday", "message": "by arrangement only" },
+  { "day": "Thursday", "opens": "10:00", "closes": "17:30" },
+  { "day": "Friday", "opens": "10:00", "closes": "17:30" },
+  { "day": "Saturday", "message": "by arrangement only" },
+  { "day": "Sunday", "message": "by arrangement only" }
+]
