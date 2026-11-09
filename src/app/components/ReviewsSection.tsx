@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Icon from '@/components/ui/AppIcon';
+import siteContent from '@/data/siteContent.json';
 
 const breakdown = [
   { stars: 5, pct: 100 },
@@ -461,7 +462,7 @@ export default function ReviewsSection() {
 
         <div data-reveal className="mt-12 flex justify-center">
           <a
-            href="https://example.com/book"
+            href={siteContent.site.bookingURL}
             className="inline-flex min-h-[64px] w-full items-center justify-center gap-3 rounded-full bg-accent px-10 text-lg font-semibold text-accent-foreground transition-transform duration-300 hover:-translate-y-1 sm:w-auto"
           >
             Join her happy clients — book now

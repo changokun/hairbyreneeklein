@@ -1,5 +1,6 @@
 [
   {
+		"badge": "",
     "id": "hair-cut",
     "name": "Hair Cut",
     "description": "Haircut, shampoo, and styling, expertly crafted for easy grow-out.",
@@ -10,7 +11,6 @@
     "priceCurrency": "EUR",
     "serviceType": "Haircut",
     "icon": "ScissorsIcon",
-    "requiresConsultation": false,
     "bookingUrl": "https://reneeklein.setmore.com/services/ff88eedd-c1a8-4524-938e-56220328187a"
   },
   {
@@ -23,8 +23,8 @@
     "minPrice": 50,
     "priceCurrency": "EUR",
     "serviceType": "Haircut",
+		"badge": "",
     "icon": "ScissorsIcon",
-    "requiresConsultation": false,
     "bookingUrl": "https://reneeklein.setmore.com/services/c097fc96-e7ca-456c-84cc-84d9fcba05d8"
   },
   {
@@ -38,7 +38,7 @@
     "priceCurrency": "EUR",
     "serviceType": "Styling",
     "icon": "WindowIcon",
-    "requiresConsultation": false,
+		"badge": "",
     "bookingUrl": "https://reneeklein.setmore.com/services/32c4c055-a60a-47cc-9ecb-8d7c15658ac5"
   },
   {
@@ -52,9 +52,8 @@
     "priceCurrency": "EUR",
     "serviceType": "Hair coloring",
     "icon": "ArrowPathIcon",
-    "requiresConsultation": false,
     "bookingUrl": "https://reneeklein.setmore.com/services/416ef7da-c23a-46df-a6a3-199e4df69665",
-    "maintenanceBadge": "Every 6–8 weeks"
+    "badge": ""
   },
   {
     "id": "all-over-color",
@@ -66,8 +65,8 @@
     "minPrice": 120,
     "priceCurrency": "EUR",
     "serviceType": "Hair coloring",
+		"badge": "",
     "icon": "ArrowPathIcon",
-    "requiresConsultation": false,
     "bookingUrl": "https://reneeklein.setmore.com/services/e1999096-9521-4212-bbf5-9ee7d7f63476"
   },
   {
@@ -81,7 +80,7 @@
     "priceCurrency": "EUR",
     "serviceType": "Hair coloring",
     "icon": "SparklesIcon",
-    "requiresConsultation": false,
+		"badge": "",
     "bookingUrl": "https://reneeklein.setmore.com/services/920961c8-f246-45cf-80c9-beb79b1a8519"
   },
   {
@@ -95,9 +94,8 @@
     "priceCurrency": "EUR",
     "serviceType": "Hair coloring",
     "icon": "LinkIcon",
-    "requiresConsultation": true,
     "bookingUrl": "https://reneeklein.setmore.com/services/53bcd84f-e625-41fc-b19f-dd89fb2e4005",
     "hasBlob": true,
-    "consultationBadge": "Consultation required"
+    "badge": ""
   }
 ]

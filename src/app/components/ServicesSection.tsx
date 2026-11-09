@@ -21,6 +21,7 @@ const colorSetClasses: Record<ColorSet, {
   text: string;
   iconBg: string;
   container: string;
+  badges: string;
   hasBlob?: boolean;
 }> = {
   alpha: {
@@ -28,25 +29,29 @@ const colorSetClasses: Record<ColorSet, {
     text: 'text-card-foreground',
     iconBg: 'bg-secondary text-primary',
     container: 'border border-border',
+		badges: 'bg-secondary text-foreground',
   },
   bravo: {
-    bg: 'bg-secondary',
+		bg: 'bg-secondary',
     text: 'text-card-foreground',
     iconBg: 'bg-card text-accent',
     container: 'border border-border',
+		badges: 'bg-accent text-primary-foreground',
   },
   charlie: {
-    bg: 'bg-accent',
+		bg: 'bg-accent',
     text: 'text-accent-foreground',
     iconBg: 'bg-secondary text-foreground',
     container: '',
+		badges: 'bg-secondary text-foreground',
   },
   delta: {
-    bg: 'bg-primary',
+		bg: 'bg-primary',
     text: 'text-primary-foreground',
     iconBg: 'bg-secondary text-foreground',
     container: 'relative overflow-hidden',
     hasBlob: true,
+		badges: 'bg-accent text-primary-foreground'
   },
 };
 
@@ -65,7 +70,7 @@ const getLongestContentIndices = (allServices: typeof services): Set<number> => 
 // Determine grid classes based on grouped content analysis
 const getGridClassesForIndex = (index: number, allServices: typeof services): string => {
   const service = allServices[index];
-  const hasBadge = service.consultationBadge || service.maintenanceBadge;
+  const hasBadge = !!service.badge;
   const descLength = service.shortDescription.length;
   const longestContentIndices = getLongestContentIndices(allServices);
   const isLongest = longestContentIndices.has(index);
@@ -86,7 +91,7 @@ const getGridClassesForIndex = (index: number, allServices: typeof services): st
     let maxScore = descLength + (hasBadge ? 1000 : 0);
     
     group.forEach((s, i) => {
-      const sHasBadge = s.consultationBadge || s.maintenanceBadge;
+      const sHasBadge = !!s.badge;
       const sLength = s.shortDescription.length;
       const sScore = sLength + (sHasBadge ? 1000 : 0);
       if (sScore > maxScore) {
@@ -159,7 +164,7 @@ export default function ServicesSection() {
             const classes = colorSetClasses[colorSet];
             const gridClasses = getGridClassesForIndex(index, services);
             const padding = getPadding(gridClasses);
-            const hasBadge = service.consultationBadge || service.maintenanceBadge;
+            const hasBadge = !!service.badge;
             
             // Determine text sizes (from service config if present)
             const nameSize = service.nameSize || 'text-2xl';
@@ -186,14 +191,9 @@ export default function ServicesSection() {
                   <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${classes.iconBg}`}>
                     <Icon name={service.icon} size={24} />
                   </div>
-                  {service.consultationBadge && (
-                    <span className="rounded-full border border-primary-foreground/30 px-4 py-1 text-[15px]">
-                      {service.consultationBadge}
-                    </span>
-                  )}
-                  {service.maintenanceBadge && (
-                    <span className="rounded-full bg-muted px-4 py-1 text-[15px] text-muted-foreground">
-                      {service.maintenanceBadge}
+                  {service.badge && (
+                    <span className={`rounded-full border border-primary-foreground/30 px-4 py-1 text-[15px] ${classes.badges ? classes.badges : ''}`}>
+                      {service.badge}
                     </span>
                   )}
                 </div>
