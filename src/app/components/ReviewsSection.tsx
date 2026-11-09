@@ -284,7 +284,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 			fills.push([0,0,0,0])
 			console.log('NEW ROW', JSON.stringify(fills))
 			// if the first row is all empty, this is a good break candidate.
-			if(r > 6 && ! pageBreakOn && fills[0].every(x => x === 0)) {
+			if(r > 3 && ! pageBreakOn && fills[0].every(x => x === 0)) {
 				pageBreakOn = r + 1
 				console.log('should pageBreakOn', pageBreakOn)
 			}
@@ -465,7 +465,7 @@ export default function ReviewsSection() {
             href={siteContent.site.bookingURL}
             className="inline-flex min-h-[64px] w-full items-center justify-center gap-3 rounded-full bg-accent px-10 text-lg font-semibold text-accent-foreground transition-transform duration-300 hover:-translate-y-1 sm:w-auto"
           >
-            Join her happy clients — book now
+            Join her happy clients — book&nbsp;now
             <Icon name="ArrowRightIcon" size={22} />
           </a>
         </div>
