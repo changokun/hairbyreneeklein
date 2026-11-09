@@ -149,12 +149,11 @@ export default function ServicesSection() {
               data-reveal
               data-reveal-delay="100"
               className="font-display text-display-lg mt-4 font-medium text-foreground">
-              
               Everything your hair needs, priced upfront.
             </h2>
           </div>
           <p data-reveal data-reveal-delay="200" className="max-w-sm text-lg text-muted-foreground">
-            Final pricing is confirmed at your consultation, based on length and density.
+            Final pricing is confirmed at your appointment, based on length and density.
           </p>
         </div>
 
@@ -215,16 +214,67 @@ export default function ServicesSection() {
           })}
         </div>
 
-        <div data-reveal className="mt-12 flex justify-center">
+        <div data-reveal className="m-12 flex justify-center">
           <a
             href={siteContent.site.bookingURL}
             target="_blank"
             className="relative inline-flex min-h-[64px] w-full items-center justify-center gap-3 rounded-full bg-primary px-10 text-lg font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-1 sm:w-auto">
-            
             Book your appointment
             <Icon name="ArrowRightIcon" size={22} />
           </a>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<article
+					data-reveal
+					data-reveal-delay="100"
+					className={`min-h-[200px]  rounded-[2rem] overflow-clip
+					p-7
+					${colorSetClasses.alpha.container} ${colorSetClasses.alpha.bg}
+					transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
+					>
+						{/* flex flex-col justify-between */}
+					{/* style={{ backgroundImage: "url('/assets/images/davines.png')"}} */}
+					
+					<img src="/assets/images/davines.png" style={{float: "right", maxHeight: "160px", margin: "0 0 20px 20px"}} />
+				
+					{/* Header with icon and optional badge */}
+					<div className={`relative`}>
+						<div className={`flex h-12 w-32 items-center justify-center rounded-2xl ${colorSetClasses.alpha.iconBg}`}>
+						<img src="/assets/images/davines-logo.svg" />
+						</div>
+					</div>
+					
+					{/* Content */}
+					<div className={`relative mt-6 ${colorSetClasses.alpha.text}`}>
+						<h3 className={`font-display text-2xl`}>
+						Are you looking for a new conditioner?
+						</h3>
+						<p className={`mt-1 text-[15px]`}>
+						Renee uses and sells Davines hair care products.
+						</p>
+						{/* <p className={`font-display mt-4 ${priceTextSize}`}>
+							{service.priceDisplay}
+						</p> */}
+					</div>
+				</article>
+
+
+
+
       </div>
     </section>
   );
